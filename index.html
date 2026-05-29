@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="referrer" content="no-referrer">
+    <title>Arcvour Uploader</title>
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-brands/css/uicons-brands.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/4.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css">
+
+    
+    
+    <link rel="stylesheet" href="css/4fd88c237694abe095d4011882e6eb4e07cef18bac73d086.css">
+    
+    <link rel="stylesheet" href="css/ed5cb75ba38d53c82215e38722146c596fbea96b10866fff.css">
+    
+    <link rel="stylesheet" href="css/12fcbdc796e4ddcb8aaa45d6629644b64a7a252b5d0bda95.css">
+    
+    <link rel="stylesheet" href="css/2551f488e03679fd3c7d020739fd508f052024d3859f4544.css">
+    
+    <link rel="stylesheet" href="css/8dbd8e99d8cbd828214a68454f1ad7c8b9d593adac838b27.css">
+    
+    <link rel="stylesheet" href="css/75648754bf123825ff8006570d84fa2772025b83ce1c818f.css">
+    
+    <link rel="stylesheet" href="css/57789d89ddf25349613a6f3cad32ff4514c91ae37b596109.css">
+    
+    <link rel="stylesheet" href="css/2b40b812690f5ab561edaeb897f5f6648c20421a10f502fc.css">
+    
+    <link rel="stylesheet" href="css/45aedb9cac60d36af3495b9599028bf47326a2b464f090d4.css">
+
+</head>
+<body>
+
+    <div id="forceUpdateView" class="force-update-view hidden" aria-hidden="true">
+        <div class="force-update-card">
+            <div class="force-update-logo">ARCBIT</div>
+            <div class="force-update-icon">
+                <i class="fi fi-rr-refresh"></i>
+            </div>
+            <h1 id="forceUpdateTitle">UPDATE REQUIRED</h1>
+            <p id="forceUpdateMessage">A new ARCBIT version is available. Please update to continue.</p>
+            <div class="force-update-version-row">
+                <span>Current</span>
+                <b id="forceUpdateCurrent">v0.0.0</b>
+                <span>Latest</span>
+                <b id="forceUpdateLatest">v0.0.0</b>
+            </div>
+            <a id="forceUpdateTelegram" class="force-update-button" href="https://arcvour.wtf/extension" target="_blank" rel="noopener noreferrer">
+                <i class="fi fi-rr-download"></i>
+                <span>DOWNLOAD UPDATE</span>
+            </a>
+        </div>
+    </div>
+
+    <div id="loginView" class="view-container">
+        <div class="login-card">
+            <div class="login-shell-frame">
+                <div class="login-shell-topbar">
+                    <div class="login-shell-title">ARCBIT</div>
+                    <div class="lang-btn login-lang-btn" id="loginLangBtn" title="Language">EN</div>
+                </div>
+
+            
+            <div class="login-header-text">
+                <h1 id="loginTitle" data-key="login_title">Selamat Datang</h1>
+                <p class="subtext" id="loginSubtitle" data-key="login_subtitle">Buka potensi TikTok-mu dengan alat optimasi canggih kami.</p>
+            </div>
+
+            
+            <div id="loginTabContainer" class="login-nav-tab">
+                <button class="login-tab-btn active" id="tabBtnLogin" data-key="tab_signin">Masuk</button>
+                <button class="login-tab-btn" id="tabBtnSignup" data-key="tab_signup">Daftar</button>
+            </div>
+
+            
+            <div id="viewLogin" class="login-form-section active">
+                <button id="loginFetchUserBtn" class="btn-clay-3d btn-clay-link">
+                    <i class="fi fi-rr-link-alt link-icon"></i>
+                    <span id="loginFetchBtnText" data-key="btn_fetch">HUBUNGKAN AKUN TIKTOK</span>
+                </button>
+                <div class="login-input-group" style="display:none;">
+                    <div class="login-label-row">
+                        <label class="login-label" data-key="lbl_username">Username</label>
+                    </div>
+                    <input type="text" id="loginUsernameInput" class="input-clay" placeholder="@akunmu" autocomplete="off">
+                </div>
+                <div class="login-input-group">
+                    <div class="login-label-row">
+                        <label class="login-label" data-key="lbl_password">Sandi</label>
+                        <a class="login-forgot-link" id="goToForgotBtn" data-key="lbl_forgot">Lupa?</a>
+                    </div>
+                    <input type="password" id="loginPasswordInput" class="input-clay" placeholder="••••••••" autocomplete="off">
+                </div>
+                <button id="loginBtn" class="btn-clay-3d" data-key="btn_enter">
+                    <span id="btnTextSpan">MASUK</span>
+                </button>
+            </div>
+
+            
+            <div id="viewSignup" class="login-form-section">
+                <button id="fetchUserBtn" class="btn-clay-3d btn-clay-link">
+                    <i class="fi fi-rr-user-add link-icon"></i>
+                    <span id="fetchBtnText" data-key="btn_fetch">HUBUNGKAN AKUN TIKTOK</span>
+                </button>
+                <input type="hidden" id="usernameInput">
+
+                <div class="login-input-group">
+                    <div class="login-label-row">
+                        <label class="login-label" data-key="lbl_set_password">Buat Sandi</label>
+                    </div>
+                    <input type="password" id="passwordInput" class="input-clay" placeholder="Atur sandi ekstensi" autocomplete="off">
+                </div>
+
+                <div class="login-security-hint">
+                    <i class="fi fi-rr-shield-check hint-icon"></i>
+                    <span data-key="hint_security">Bukan sandi akun. Hanya untuk pengaturan ekstensi.</span>
+                </div>
+
+                <button id="registerBtn" class="btn-clay-3d">
+                    <span data-key="btn_create">BUAT AKUN</span>
+                </button>
+            </div>
+
+            
+            <div id="viewForgot" class="login-form-section">
+                <button id="forgotLinkBtn" class="btn-clay-3d btn-clay-link">
+                    <i class="fi fi-rr-link-alt link-icon"></i>
+                    <span id="forgotLinkBtnText" data-key="btn_verify">VERIFIKASI AKUN TIKTOK</span>
+                </button>
+                <input type="hidden" id="forgotUsernameInput">
+
+                <div class="login-input-group">
+                    <div class="login-label-row">
+                        <label class="login-label" data-key="lbl_new_password">Sandi Baru</label>
+                    </div>
+                    <input type="password" id="forgotPasswordInput" class="input-clay" placeholder="Masukkan sandi baru" autocomplete="off">
+                </div>
+
+                <button id="forgotSubmitBtn" class="btn-clay-3d">
+                    <span id="forgotSubmitText" data-key="btn_update_pw">PERBARUI SANDI</span>
+                </button>
+
+                <div class="login-return-link">
+                    <a id="forgotBackToLoginBtn" data-key="link_back_login">Kembali ke Masuk</a>
+                </div>
+            </div>
+
+            
+            <div id="successArea">
+                <div class="success-popup-content">
+                    <div class="success-animation-wrapper">
+                        <div class="success-checkmark-circle">
+                            <div class="success-checkmark"></div>
+                        </div>
+                    </div>
+                    <p class="success-message-text" data-key="success_msg">AKUN BERHASIL DIBUAT!</p>
+                    <button id="successToLoginBtn" class="btn-clay-3d">
+                        <span data-key="btn_to_login">KE HALAMAN MASUK</span>
+                    </button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainView" class="view-container hidden-right">
+        <div class="app-wrapper-box dashboard-wrapper">
+            <div class="main-scroll-area">
+                <a id="updateBanner" href="#" target="_blank" class="update-card hidden">
+                    <div class="update-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9zM12 4.15L6.04 7.5 12 10.85l5.96-3.35L12 4.15z"/></svg>
+                    </div>
+                    <div class="update-info">
+                        <span class="update-title" data-key="update_title">PEMBARUAN TERSEDIA!</span>
+                        <span class="update-desc">
+                            <span id="newVersionNum" class="u-version-num">v0.0.0</span>
+                            <span data-key="update_desc"> klik untuk mengunduh versi ini.</span>
+                        </span>
+                    </div>
+                </a>
+                <div class="header-bar main-headerbar">
+                    <div class="main-header-shell glass-panel">
+                        <div class="user-profile main-avatar-only" id="homeProfileBtn" title="Home" data-title-key="nav_home" role="button">
+                            <div class="avatar-circle" id="userAvatar">K</div>
+                            <div class="user-name" id="userDisplayName">@User</div>
+                        </div>
+                        <div class="main-brand-title" data-key="brand_title">ARCBIT</div>
+                        <div class="action-icons">
+                            <div class="lang-btn" id="langBtn" title="Language">EN</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card home-upload-card" id="mainCard">
+                    <div class="home-upload-stack">
+                        <div class="home-upload-head">
+                            <div class="home-upload-kicker" data-key="inject_title">TIKTOK ENCHANCED</div>
+                            <div class="home-upload-subtitle" data-key="inject_home_subtitle">Upload video in high quality 60-120 FPS</div>
+                        </div>
+
+                        <div class="home-upload-toprow">
+                            <div class="compact-upload-banner home-upload-banner home-upload-filebox" id="uploadCard">
+                                <div class="home-upload-filebox-inner">
+                                    <div class="home-upload-filebox-icon">
+                                        <i id="up-icon" class="fi fi-rr-cloud-upload"></i>
+                                    </div>
+                                    <div class="home-upload-filebox-label" data-key="inject_upload_file">UPLOAD FILE</div>
+                                </div>
+                            </div>
+
+                            <div class="home-upload-side">
+                                <div class="home-upload-filemeta">
+                                    <div class="home-upload-filemeta-label" data-key="inject_video_file">FILE NAME</div>
+                                    <div id="uploadText" class="home-upload-filetitle" data-key="inject_source_media">SELECT SOURCE MEDIA</div>
+                                </div>
+
+                                <div class="compact-details-grid home-upload-grid">
+                                    <div class="detail-box">
+                                        <span class="detail-label" data-key="inject_resolution">Resolution</span>
+                                        <span class="detail-value" id="b-res">---</span>
+                                    </div>
+                                    <div class="detail-box">
+                                        <span class="detail-label" data-key="inject_fps">FPS</span>
+                                        <span class="detail-value" id="b-fps">---</span>
+                                    </div>
+                                    <div class="detail-box">
+                                        <span class="detail-label" data-key="inject_bitrate">Bitrate</span>
+                                        <span class="detail-value" id="b-bitrate">---</span>
+                                    </div>
+                                    <div class="detail-box">
+                                        <span class="detail-label" data-key="inject_size">Size</span>
+                                        <span class="detail-value" id="b-size">---</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="startBypassBtn" class="bp-btn" disabled>
+                            <span data-key="inject_init_calibration">UPLOAD VIDEO</span>
+                            <small id="freeTrialUploadInfo">3 FREE UPLOADS LEFT</small>
+                        </button>
+
+                        <div id="uploadErrorNotice" class="upload-error-notice" hidden>
+                            <div class="upload-error-icon"><i class="fi fi-rr-triangle-warning"></i></div>
+                            <div class="upload-error-copy">
+                                <div id="uploadErrorTitle" class="upload-error-title">Upload failed</div>
+                                <div id="uploadErrorMessage" class="upload-error-message">Please check your video and try again.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-offers-shell" id="pricingOffers" hidden>
+                    <div class="pricing-offers-grid">
+                        <div class="pricing-offer-card pricing-offer-card--popular" data-package-key="package_1" hidden>
+                            <div class="pricing-offer-ribbon pricing-offer-ribbon--popular" data-package-field="badge_text" data-key="pricing_popular">POPULAR</div>
+                            <div class="pricing-offer-head">
+                                <div>
+                                    <div class="pricing-offer-title" data-package-field="name" data-key="pricing_week_title">7 Days</div>
+                                    <div class="pricing-offer-desc" data-package-field="description" data-key="pricing_week_desc">Quick & easy access.</div>
+                                </div>
+                                <span class="pricing-offer-badge pricing-offer-badge--hot" data-package-field="discount_label" data-key="pricing_week_badge">30% OFF</span>
+                            </div>
+                            <div class="pricing-offer-price-wrap">
+                                <span class="pricing-offer-old" data-package-field="original_price" data-key="pricing_week_old">$4.29</span>
+                                <div class="pricing-offer-price-row">
+                                    <span class="pricing-offer-price" data-package-field="sale_price" data-key="pricing_week_price">$3</span>
+                                    <span class="pricing-offer-period" data-package-field="period" data-key="pricing_week_period">/ 7 days</span>
+                                </div>
+                            </div>
+                            <button class="pricing-offer-btn" type="button" data-buy-plan="package_1" data-buy-url="https://t.me/arcvour" data-key="pricing_buy">BUY</button>
+                        </div>
+
+                        <div class="pricing-offer-card pricing-offer-card--featured" data-package-key="package_2" hidden>
+                            <div class="pricing-offer-ribbon" data-package-field="badge_text" data-key="pricing_best_price">BEST PRICE</div>
+                            <div class="pricing-offer-head">
+                                <div>
+                                    <div class="pricing-offer-title" data-package-field="name" data-key="pricing_month_title">1 Month</div>
+                                    <div class="pricing-offer-desc" data-package-field="description" data-key="pricing_month_desc">Full workflow power.</div>
+                                </div>
+                                <span class="pricing-offer-badge pricing-offer-badge--warm" data-package-field="discount_label" data-key="pricing_month_badge">20% OFF</span>
+                            </div>
+                            <div class="pricing-offer-price-wrap">
+                                <span class="pricing-offer-old" data-package-field="original_price" data-key="pricing_month_old">$10.00</span>
+                                <div class="pricing-offer-price-row">
+                                    <span class="pricing-offer-price" data-package-field="sale_price" data-key="pricing_month_price">$8</span>
+                                    <span class="pricing-offer-period" data-package-field="period" data-key="pricing_month_period">/ month</span>
+                                </div>
+                            </div>
+                            <button class="pricing-offer-btn" type="button" data-buy-plan="package_2" data-buy-url="https://t.me/arcvour" data-key="pricing_buy">BUY</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card home-feature-carousel-card">
+                    <div class="features-list home-feature-carousel" id="homeFeatureCarousel">
+                        <div class="feature-item home-feature-slide active" id="feat_60fps">
+                            <i class="feature-icon fi fi-rr-flame ui-icon lg"></i>
+                            <div>
+                                <div class="feat-title" data-key="feat1_title">Mode Unggah Premium</div>
+                                <div class="feat-desc" data-key="feat1_desc">Fitur dikontrol server</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-feature-dots" id="homeFeatureDots" aria-hidden="true"></div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+
+    <div id="statsView" class="view-container hidden-right">
+        <div class="app-wrapper-box">
+        <div class="header-bar stats-headerbar centered-header">
+            <div class="dashboard-title-chip" id="dashboardTitle" data-key="stats_title">PROFILE DASHBOARD</div>
+        </div>
+
+
+        <div class="stats-content">
+
+            <div class="dashboard-shell">
+                <div id="profileDashboardPanel" class="dashboard-panel active">
+                    <div class="dashboard-card dashboard-profile-card">
+                        <div class="dashboard-watermark">PROFILE</div>
+                        <div class="dashboard-profile-head">
+                            <div class="dashboard-avatar" id="profileDashAvatar">K</div>
+                            <div class="dashboard-profile-meta">
+                                <div class="dashboard-name" id="profileDashName">@user</div>
+                                <div class="dashboard-handle" id="profileDashHandle">Loading profile data...</div>
+                                <div class="dashboard-bio" id="profileDashBio">Profile summary will appear here.</div>
+                                <div class="dashboard-badges">
+                                    <span class="dashboard-pill" id="profileDashVerification">Standard</span>
+                                    <span class="dashboard-pill" id="profileDashPrivacy">Public</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-stats-grid">
+                            <div class="dashboard-stat">
+                                <span>Following</span>
+                                <b id="profileDashFollowing">0</b>
+                            </div>
+                            <div class="dashboard-stat">
+                                <span>Followers</span>
+                                <b id="profileDashFollowers">0</b>
+                            </div>
+                            <div class="dashboard-stat">
+                                <span>Likes</span>
+                                <b id="profileDashLikes">0</b>
+                            </div>
+                            <div class="dashboard-stat">
+                                <span>Videos</span>
+                                <b id="profileDashVideos">0</b>
+                            </div>
+                        </div>
+                        <div class="dashboard-info-list">
+                            <div class="dashboard-info-row">
+                                <span>Created</span>
+                                <b id="profileDashCreated">Unknown</b>
+                            </div>
+                            <div class="dashboard-info-row">
+                                <span>Verified</span>
+                                <b id="profileDashVerifiedState">Unknown</b>
+                            </div>
+                            <div class="dashboard-info-row">
+                                <span>Account</span>
+                                <b id="profileDashAccount">Public</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="postDashboardPanel" class="dashboard-panel">
+                    <div class="dashboard-card dashboard-latest-post-card" id="latestPostCard" style="display: none; margin-bottom: 10px;">
+                        <div class="dashboard-list-note">LATEST POST</div>
+                        <div class="dashboard-post-head" style="align-items: flex-start;">
+                            <div class="dashboard-post-cover" id="latestPostCover" style="width: 80px; min-width: 80px; height: 110px;"></div>
+                            <div class="dashboard-post-meta">
+                                <div class="dashboard-post-title" id="latestPostTitle">Loading...</div>
+                                <div class="dashboard-post-date" id="latestPostDate">--</div>
+                                <div class="dashboard-post-stats" style="margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                    <div class="dashboard-post-stat"><span>Views</span><b id="latestPostViews">0</b></div>
+                                    <div class="dashboard-post-stat"><span>Likes</span><b id="latestPostLikes">0</b></div>
+                                </div>
+                                <div class="dashboard-post-stats" style="margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                    <div class="dashboard-post-stat"><span>Comments</span><b id="latestPostComments">0</b></div>
+                                    <div class="dashboard-post-stat"><span>Shares</span><b id="latestPostShares">0</b></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card dashboard-post-list-card" id="postListCard">
+                        <div class="dashboard-watermark">POSTS</div>
+                        <div class="dashboard-list-note" data-key="post_dashboard_list">POST LIST</div>
+                        <div class="video-list-container" id="videoList"></div>
+                    </div>
+                    <div class="dashboard-card dashboard-post-detail-card card-hidden" id="postDetailCard">
+                        <div class="post-detail-header">
+                            <div class="post-detail-back" id="postDetailBackBtn" aria-label="Back to post list">
+                                <svg viewBox="0 0 24 24"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                            </div>
+                            <div class="u-post-detail-meta">
+                                <div class="post-detail-title" id="postDetailTitle">Post detail</div>
+                                <div class="post-detail-subtitle" id="postDetailDate">--</div>
+                            </div>
+                        </div>
+                        <div class="post-detail-cover" id="postDetailCover"></div>
+                        <div class="post-detail-tags" id="postDetailTags"></div>
+                        <div class="post-detail-info-grid">
+                            <div class="post-detail-info"><span>Uploaded</span><b id="postDetailUploaded">--</b></div>
+                            <div class="post-detail-info"><span>Views</span><b id="postDetailViews">0</b></div>
+                            <div class="post-detail-info"><span>Likes</span><b id="postDetailLikes">0</b></div>
+                            <div class="post-detail-info"><span>Comments</span><b id="postDetailComments">0</b></div>
+                            <div class="post-detail-info"><span>Shares</span><b id="postDetailShares">0</b></div>
+                            <div class="post-detail-info"><span>Engagement</span><b id="postDetailEngagement">0.0%</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div id="dlView" class="view-container hidden-right">
+        <div class="app-wrapper-box">
+            <div class="main-scroll-area u-tools-scroll-area">
+                <div class="header-bar centered-header">
+                    <div class="dashboard-title-chip" data-key="dl_title">TOOLS</div>
+                </div>
+                <div class="u-tools-card">
+                    <div class="u-tools-section" id="downloadToolsSection">
+                        <div class="u-tools-section-head">
+                            <div class="u-tools-section-title" data-key="dl_section_title">Download</div>
+                            <div class="u-download-lock-badge" id="downloadLockBadge" hidden>
+                                <i class="fi fi-rr-lock"></i>
+                                <span data-key="status_locked">LOCKED</span>
+                            </div>
+                        </div>
+                        <div class="u-download-row">
+                            <div class="search-group dl-link-group u-download-input">
+                                <div class="search-input-wrapper">
+                                    <svg class="search-icon" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                                    <input type="text" id="dlUrlInput" placeholder=" " autocomplete="off">
+                                    <label class="search-label" data-key="dl_input_ph">Link</label>
+                                </div>
+                            </div>
+                            <button id="dlAnalyzeBtn" class="search-btn u-download-go-btn" type="button" aria-label="Download">
+                                <i class="fi fi-br-download"></i>
+                            </button>
+                        </div>
+                        <div id="dlResultArea" class="hidden u-dl-result-animate" style="margin-top: 12px;">
+                            <div class="glass-card">
+                                <div class="glass-content" style="text-align: center; color: var(--primary);">
+                                    <span id="dlDesc" data-key="dl_waiting_link">Waiting for link...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="u-tools-card" style="display:none">
+                    <div class="u-tools-section" id="vpnToolsSection">
+                        <div class="u-tools-section-head">
+                            <div class="u-tools-section-title">Upload Status</div>
+                            <div class="u-vpn-lock-badge" id="vpnLockBadge" hidden>
+                                <i class="fi fi-rr-lock"></i>
+                                <span data-key="status_locked">LOCKED</span>
+                            </div>
+                        </div>
+                        <div class="u-vpn-toggle-row">
+                            <div class="u-vpn-toggle-copy">
+                                <div class="feat-title">Secure Upload</div>
+                                <div class="feat-desc">Auto protection status</div>
+                            </div>
+                            <label class="switch vpn-switch" style="display:none">
+                                <input type="checkbox" id="vpnToolsHiddenToggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="vpn-secret-status is-offline">
+                            <span class="vpn-secret-dot"></span>
+                            <span id="vpnToolsHiddenStatus">OFFLINE</span>
+                        </div>
+                        <div class="vpn-selected-row" style="display:none">
+                            <button id="vpnCountryBtn" class="vpn-country-trigger vpn-selected-pill" type="button">
+                                <span class="vpn-selected-label" data-key="vpn_selected">Selected</span>
+                                <span id="vpnCountryName">Indonesia</span>
+                            </button>
+                        </div>
+                        <div class="vpn-country-grid" id="vpnCountryDropdown" style="display:none">
+                            <button class="vpn-country-item" data-vpn-country="Indonesia" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_indonesia">Indonesia</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                            <button class="vpn-country-item" data-vpn-country="Japan" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_japan">Japan</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                            <button class="vpn-country-item" data-vpn-country="Singapore" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_singapore">Singapore</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                            <button class="vpn-country-item" data-vpn-country="United States" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_united_states">United States</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                            <button class="vpn-country-item" data-vpn-country="United Kingdom" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_united_kingdom">United Kingdom</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                            <button class="vpn-country-item" data-vpn-country="Germany" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_germany">Germany</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                            <button class="vpn-country-item" data-vpn-country="France" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_france">France</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                            <button class="vpn-country-item" data-vpn-country="Brazil" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_brazil">Brazil</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                            <button class="vpn-country-item" data-vpn-country="Russia" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_russia">Russia</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                            <button class="vpn-country-item" data-vpn-country="Turkey" data-vpn-ms="AUTO" type="button">
+                                <span class="vpn-country-label"><i class="fi fi-rr-marker"></i> <span class="vpn-country-text" data-key="vpn_turkey">Turkey</span></span>
+                                <span class="vpn-country-ms good">AUTO</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            <div id="supportView" class="view-container hidden-right">
+                <div class="app-wrapper-box">
+    
+    <div id="supportScanning" class="u-support-scanning">
+        <div class="logo-ring u-support-ring">
+            <div class="ring-pulse u-support-ring-pulse"></div>
+            <svg viewBox="0 0 24 24" class="u-support-spinner">
+                <path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z"/>
+            </svg>
+        </div>
+        <div class="u-support-connecting">MENGHUBUNGKAN DUKUNGAN...</div>
+        <div class="u-support-verifying">VERIFYING ACCOUNT...</div>
+    </div>
+
+<div id="supportError">
+        <svg viewBox="0 0 24 24" class="u-error-icon">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </svg>
+        <div class="u-error-title">ACCESS DENIED</div>
+        <p class="u-error-desc">Kamu perlu sesi TikTok yang aktif di browser untuk terhubung ke sistem dukungan.</p>
+        <button id="closeSupportErrorBtn" class="cyber-btn u-close-error-btn">
+            <span class="btn-text">Return</span>
+        </button>
+    </div>
+
+<div id="supportChat">
+<div class="header-bar u-chat-header">
+        <div class="back-btn" id="closeSupportChatBtn">
+            <svg viewBox="0 0 24 24" class="u-chat-back-icon"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        </div>
+        <div class="view-title">Customer Support</div>
+        
+        <div class="u-chat-header-right">
+            <div id="refreshChatBtn" class="u-refresh-btn" title="Muat Ulang Chat">
+                <svg viewBox="0 0 24 24" class="u-refresh-icon"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+            </div>
+            <div class="live-tag u-live-green">LIVE</div>
+        </div>
+    </div>
+
+    <div id="chatMessagesArea" class="chat-container u-chat-messages">
+        <div class="chat-row admin-row">
+            <div class="chat-avatar"></div>
+            <div class="chat-bubble">
+                <span class="chat-sender-name">ARCBIT ADMIN</span>
+                Koneksi aman. Selamat datang <span id="chatSupportUsername" class="u-chat-username">@user</span>. Ada yang bisa kami bantu?
+            </div>
+        </div>
+    </div>
+
+    <div class="u-chat-input-row">
+        <input type="text" id="chatInputMessage" placeholder="Tulis pesan..." class="u-chat-input">
+        <button id="sendChatMsgBtn" class="search-btn u-chat-send-btn">
+            <svg viewBox="0 0 24 24" class="u-chat-send-icon"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+    <input type="file" id="bypassFileInput" accept=".mp4,video/mp4" class="u-display-none">
+
+
+<div id="toolsView" class="view-container hidden-right">
+    <div class="app-wrapper-box">
+        <div class="main-scroll-area">
+            <div class="header-bar centered-header">
+                <div class="dashboard-title-chip" data-key="tools_title">FEATURE</div>
+            </div>
+
+            
+            <div class="card tools-toggle-card">
+                <div class="tools-toggle-row">
+                    <div class="tools-toggle-info">
+                        <i class="fi fi-rr-picture ui-icon lg feature-icon"></i>
+                        <div>
+                            <div class="feat-title" data-key="tools_watermark">Add Watermark</div>
+                            <div class="feat-desc" data-key="tools_watermark_desc">Auto-embed brand overlay</div>
+                        </div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="watermarkToggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            
+            <div class="card tools-toggle-card">
+                <div class="tools-toggle-row">
+                    <div class="tools-toggle-info">
+                        <i class="fi fi-br-microphone ui-icon lg feature-icon"></i>
+                        <div>
+                            <div class="feat-title" data-key="tools_promo">Promo Sound</div>
+                            <div class="feat-desc" data-key="tools_promo_desc">Inject promotional audio</div>
+                        </div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="promoSoundToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            
+            <div class="card tools-action-card" id="toolsAccountAnalytics">
+                <i class="fi fi-rr-user ui-icon lg feature-icon"></i>
+                <div>
+                    <div class="feat-title" data-key="tools_account_analytics">Account Analytics</div>
+                    <div class="feat-desc" data-key="tools_account_desc">Profile growth & insights</div>
+                </div>
+                <i class="fi fi-rr-angle-right ui-icon sm" style="margin-left:auto; color:var(--text-sub);"></i>
+            </div>
+
+            
+            <div class="card tools-action-card" id="toolsPostAnalytics">
+                <i class="fi fi-rr-chart-histogram ui-icon lg feature-icon"></i>
+                <div>
+                    <div class="feat-title" data-key="tools_post_analytics">Post Analytics</div>
+                    <div class="feat-desc" data-key="tools_post_desc">View post performance data</div>
+                </div>
+                <i class="fi fi-rr-angle-right ui-icon sm" style="margin-left:auto; color:var(--text-sub);"></i>
+            </div>
+
+            
+            <div class="card tools-action-card tools-enhanced-trigger" id="toolsEnhancedTrigger" role="button" tabindex="0" aria-expanded="false">
+                <i class="fi fi-rr-chart-histogram ui-icon lg feature-icon"></i>
+                <div>
+                    <div class="feat-title" data-key="tools_enhanced">Enhanced Analytics</div>
+                    <div class="feat-desc" data-key="tools_enhanced_desc">Tap to open insight cards</div>
+                </div>
+                <i class="fi fi-rr-angle-right ui-icon sm" style="margin-left:auto; color:var(--text-sub);"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="enhancedAnalyticsView" class="view-container hidden-right">
+    <div class="app-wrapper-box">
+        <div class="main-scroll-area">
+            <div class="header-bar centered-header">
+                <div class="dashboard-title-chip" data-key="tools_enhanced">Enhanced Analytics</div>
+            </div>
+            <div class="card tools-enhanced-card">
+                <div class="tools-enhanced-grid">
+                    <div class="tools-enhanced-item">
+                        <i class="fi fi-rr-clock ui-icon md feature-icon"></i>
+                        <div class="tools-enhanced-label" data-key="tools_best_time">Best Upload Time</div>
+                        <div class="tools-enhanced-value" id="enhancedBestTime">--:-- - --:--</div>
+                    </div>
+                    <div class="tools-enhanced-item">
+                        <i class="fi fi-rr-flame ui-icon md feature-icon"></i>
+                        <div class="tools-enhanced-label">Avg Engagement</div>
+                        <div class="tools-enhanced-value" id="enhancedAvgEngagement">--%</div>
+                    </div>
+                    <div class="tools-enhanced-item">
+                        <i class="fi fi-rr-tags ui-icon md feature-icon"></i>
+                        <div class="tools-enhanced-label">Best Tags</div>
+                        <div class="tools-enhanced-value" id="enhancedBestTags">--</div>
+                    </div>
+                    <div class="tools-enhanced-item">
+                        <i class="fi fi-rr-chart-histogram ui-icon md feature-icon"></i>
+                        <div class="tools-enhanced-label">Avg Views</div>
+                        <div class="tools-enhanced-value" id="enhancedAvgViews">--</div>
+                    </div>
+                    <div class="tools-enhanced-item">
+                        <i class="fi fi-rr-play ui-icon md feature-icon"></i>
+                        <div class="tools-enhanced-label">Top Video</div>
+                        <div class="tools-enhanced-value" id="enhancedTopVideo">--</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="settingsView" class="view-container hidden-right">
+    <div class="app-wrapper-box">
+        <div class="main-scroll-area">
+            <div class="header-bar centered-header">
+                <div class="dashboard-title-chip" data-key="settings_title">PROFILE</div>
+            </div>
+
+            
+            <div class="card settings-profile-card">
+                <div class="settings-avatar-row">
+                    <div class="avatar-circle settings-avatar" id="settingsAvatar">K</div>
+                    <div class="settings-user-info">
+                        <div class="settings-username" id="settingsUsername">@User</div>
+                        <div class="settings-plan" id="settingsPlan" data-key="settings_free">Free Plan</div>
+                    </div>
+                </div>
+                <div class="settings-info-row" style="margin-top: 14px;">
+                    <span class="settings-info-label" data-key="profile_user_id_label">User ID</span>
+                    <span class="settings-info-value settings-copyable" id="settingsUserIdDisplay">-</span>
+                </div>
+            </div>
+
+            
+            <div class="card settings-section-card">
+                <div class="feat-title" style="margin-bottom:10px;" data-key="settings_subscription">Subscription</div>
+                <div class="settings-info-row">
+                    <span class="settings-info-label" data-key="settings_plan_label">Current Plan</span>
+                    <span class="settings-info-value" id="settingsPlanType">Free</span>
+                </div>
+                <div class="settings-info-row">
+                    <span class="settings-info-label" data-key="settings_status_label">Status</span>
+                    <span class="settings-info-value settings-active" id="settingsStatus">Active</span>
+                </div>
+                <div class="settings-info-row">
+                    <span class="settings-info-label" data-key="settings_version_label">Version</span>
+                    <span class="settings-info-value" id="settingsVersion">v1.0.0</span>
+                </div>
+            </div>
+
+            
+            <div class="card settings-section-card">
+                <div class="feat-title" style="margin-bottom:10px;" data-key="settings_features">Features</div>
+                <div class="settings-feature-row">
+                    <span data-key="settings_feat_60fps">Premium Upload</span>
+                    <span class="settings-check" data-settings-feature="premium_upload">✓</span>
+                </div>
+                <div class="settings-feature-row">
+                    <span data-key="settings_feat_bypass">Advanced Upload</span>
+                    <span class="settings-check" data-settings-feature="advanced_upload">✓</span>
+                </div>
+                <div class="settings-feature-row">
+                    <span data-key="settings_feat_download">Video Downloader</span>
+                    <span class="settings-check" data-settings-feature="video_downloader">✓</span>
+                </div>
+                <div class="settings-feature-row">
+                    <span data-key="settings_feat_analytics">Analytics Dashboard</span>
+                    <span class="settings-check" data-settings-feature="analytics_dashboard">✓</span>
+                </div>
+            </div>
+
+            <div class="card settings-section-card settings-logout-card">
+                <div class="logout-btn settings-logout-btn" id="logoutBtn" title="Logout">LOGOUT</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="bypass-overlay" class="view-container hidden-right">
+    <div class="app-wrapper-box news-wrapper" style="display: flex; flex-direction: column;">
+        <div class="news-shell">
+            <div class="header-bar centered-header news-headerbar">
+                <div class="dashboard-title-chip" data-key="nav_news">NEWS</div>
+            </div>
+
+            <div class="news-hero">
+                <div class="news-hero-tag" data-key="news_hero_tag">INFO KOMUNITAS</div>
+            </div>
+
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-card-meta">
+                        <span>01</span>
+                        <span data-key="news_meta_today">Hari ini</span>
+                    </div>
+                    <div class="news-card-title" data-key="news_card1_title">Unggah di Beranda</div>
+                    <div class="news-card-desc" data-key="news_card1_desc">Panel utama kini fokus pada unggah video dan tombol inisialisasi kalibrasi.</div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card-meta">
+                        <span>02</span>
+                        <span data-key="news_meta_ui">Pembaruan UI</span>
+                    </div>
+                    <div class="news-card-title" data-key="news_card2_title">Panel Berita</div>
+                    <div class="news-card-desc" data-key="news_card2_desc">Panel lama dipindahkan ke ruang berita supaya navigasi terasa lebih rapi dan jelas.</div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card-meta">
+                        <span>03</span>
+                        <span data-key="news_meta_summary">Rangkuman</span>
+                    </div>
+                    <div class="news-card-title" data-key="news_card3_title">Kalibrasi Otomatis</div>
+                    <div class="news-card-desc" data-key="news_card3_desc">Video yang dipilih akan dibaca resolusi, FPS, bitrate, dan ukurannya sebelum proses dimulai.</div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card-meta">
+                        <span>04</span>
+                        <span data-key="news_meta_community">Komunitas</span>
+                    </div>
+                    <div class="news-card-title" data-key="news_card4_title">Telegram Community</div>
+                    <div class="news-card-desc" data-key="news_card4_desc">Gunakan tombol Telegram di bawah untuk masuk ke komunitas dan mengikuti pengumuman terbaru.</div>
+                </article>
+                <article class="news-card">
+                    <div class="news-card-meta">
+                        <span>05</span>
+                        <span data-key="news_meta_note">Catatan</span>
+                    </div>
+                    <div class="news-card-title" data-key="news_card5_title">Rencana Pengembangan</div>
+                    <div class="news-card-desc" data-key="news_card5_desc">Pembaruan berikutnya akan fokus pada stabilitas, kecepatan, dan tampilan yang lebih ringan.</div>
+                </article>
+            </div>
+
+            <div class="news-social-row">
+                <div class="news-social-head">
+                    <div class="news-social-title" data-key="news_social_title">Media Sosial</div>
+                </div>
+                <div class="news-social-actions">
+                    <a class="news-social-btn news-social-telegram" href="https://t.me/arcvourbit" target="_blank" rel="noreferrer" data-key="news_social_telegram">
+                        Telegram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="global-navbar">
+        <div class="bottom-nav">
+            <div class="bottom-nav-group">
+              <div class="nav-btn bottom-nav-btn nav-badge-btn" id="dlPageBtn" title="Tools" data-title-key="nav_tools">
+                  <i class="fi fi-rr-tool-box ui-icon md"></i>
+                  <span class="nav-subtext" data-key="nav_tools">Tools</span>
+              </div>
+              <div class="nav-btn bottom-nav-btn nav-badge-btn" id="toolsBtn" title="Feature" data-title-key="nav_feature">
+                  <i class="fi fi-rr-apps ui-icon md"></i>
+                  <span class="nav-subtext" data-key="nav_feature">Feature</span>
+              </div>
+              <div class="nav-btn bottom-nav-btn nav-badge-btn nav-home-btn" id="homeProfileBtnGlobal" title="Home" data-title-key="nav_home" role="button">
+                  <i class="fi fi-br-home ui-icon md"></i>
+                  <span class="nav-subtext" data-key="nav_home">Home</span>
+              </div>
+              <div class="nav-btn bottom-nav-btn nav-badge-btn" id="openBypassBtn" title="News" data-title-key="nav_news">
+                  <i class="fi fi-rr-bell ui-icon md"></i>
+                  <span class="nav-subtext" data-key="nav_news">News</span>
+              </div>
+              <div class="nav-btn bottom-nav-btn nav-badge-btn" id="settingsBtn" title="Profile" data-title-key="nav_profile">
+                  <i class="fi fi-br-user ui-icon md"></i>
+                  <span class="nav-subtext" data-key="nav_profile">Profile</span>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="logoutConfirmOverlay" class="logout-confirm-overlay" hidden>
+        <div class="logout-confirm-card">
+            <div class="logout-confirm-title" data-key="logout_confirm_title">Logout?</div>
+            <div class="logout-confirm-desc" data-key="logout_confirm_desc">Kamu akan keluar dari akun ini.</div>
+            <div class="logout-confirm-actions">
+                <button type="button" id="logoutCancelBtn" class="logout-confirm-btn logout-confirm-btn--cancel" data-key="logout_confirm_cancel">Batal</button>
+                <button type="button" id="logoutConfirmBtn" class="logout-confirm-btn logout-confirm-btn--danger" data-key="logout_confirm_ok">Keluar</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/364054f32c9162e00a28a3d41623eac8ba161eabb0b4d48d.js"></script>
+
+    
+    
+    <script src="js/1b260b0626f53c9e435baf285d0d08121680764762507f14.js"></script>
+    
+    <script src="js/2b60d46b7f5f6e595df59bed55f0e72eccec15de4283cc66.js"></script>
+    
+    <script src="js/d3492111ccd295ea3ddd9370cfd391c80046c762d63ffc10.js"></script>
+    
+    
+    <script src="js/a7a23a6d3f0890b28f2244aa759c3e79d0c3e9efaa072162.js"></script>
+
+        <script src="js/bcd4154a03d8d2b74d2ba46e34902cde7862e36febfb3a1e.js"></script>
+        <script src="js/465992370ebf6dba5849def8a6b5db975e8b939efd81ba91.js"></script>
+    
+    <script src="js/38aad389df336af8fc52afef734a9a7149604537a69bfcce.js"></script>
+    
+    <script src="js/d643b9236657f2f049f8edf78224261817d9d05703e5f787.js"></script>
+    
+    <script src="js/616fd66f32b57c05b0d154e37eb070f417ef11bfc7f11a9d.js"></script>
+    
+    <script src="js/5b62b6739f6a914fa752ce01d88c50367fe647248f337d16.js"></script>
+    
+    <script src="js/b5eb8d5e67efbdac0f99563716ecd6d41bb1e117e7a50310.js"></script>
+    
+    <script src="js/53e55a2b0109a76a90fa169023aadb3d632d1fd3dc38d45e.js"></script>
+    
+    <script src="js/6f9df1a169df5467fe10b8a1f77c7d369c870f84780de216.js"></script>
+    
+    <script src="js/aa1a37849c530f6cd6d221978ec5dd58fb15eeab4637fe68.js"></script>
+</body>
+</html>

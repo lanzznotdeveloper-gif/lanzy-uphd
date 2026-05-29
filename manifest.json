@@ -1,0 +1,56 @@
+{
+  "action": {
+    "default_title": "ARCBIT",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "js/8d2c3feb3b577195fb375bda0951242f3cba59d44da9d150.js"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "js/80e6fa93657073a105f08945da1b38773f098ab2d032d2f3.js"
+      ],
+      "matches": [
+        "https://www.tiktok.com/*"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "description": "ArcBit helps creators upload clearer, smoother, high-quality videos to TikTok.",
+  "host_permissions": [
+    "https://*.tiktok.com/*",
+    "https://arcvour.wtf/*"
+  ],
+  "icons": {
+    "16": "logo/icon16.png",
+    "32": "logo/icon32.png",
+    "48": "logo/icon48.png",
+    "128": "logo/icon128.png"
+  },
+  "manifest_version": 3,
+  "name": "ArcBit: Enhanced TikTok",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage",
+    "unlimitedStorage",
+    "downloads",
+    "alarms",
+    "tabs"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "version": "1.2.8",
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "js/1333103f59fae8ccd51b2860556b00567f5a69a12441cb0e.js"
+      ]
+    }
+  ]
+}
